@@ -14,6 +14,7 @@ module.exports.run = async (bot, message, args, utils) => {
 
   let moneyEmbed = new Discord.MessageEmbed()
   .setColor("#FFFFFF")
+  .setThumbnail(user.displayAvatarURL()+"?size=4096")
   .setDescription(`**${user}'s Balance**\n\nPocket: ${bal}\nBank: ${bank}`);
   message.channel.send(moneyEmbed)
 };
