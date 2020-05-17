@@ -1,25 +1,14 @@
 {
-  "name": "misaki",
-  "version": "2.0.0",
-  "description": "Misaki is all of the fun and entertainment commands taken from GuideBot aka York-Dev and bundled into this tsundere themed bot.",
+  "name": "economy-uplife",
+  "version": "1.4.0-dev",
+  "description": "discord economy give API",
   "main": "index.js",
   "scripts": {
-    "test": "eslint .",
-    "lint": "eslint --fix .",
     "start": "node index.js"
   },
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/NotAWeebDev/Misaki.git"
-  },
-  "author": "York (http://anidiots.guide)",
+  "author": "namekinggamerboy",
   "license": "MIT",
-  "bugs": {
-    "url": "https://github.com/NotAWeebDev/Misaki/issues"
-  },
-  "homepage": "https://github.com/NotAWeebDev/Misaki#readme",
   "dependencies": {
-    "discord.js": "^11.4.2",
     "ms": "^2.1.1",
     "quick.db": "^6.3.2",
     "parse-ms": "^2.0.0"
