@@ -17,7 +17,7 @@ let client = bot;
         finalLb += `**${client.users.get(resp[i].ID.split('_')[2]).username}** - \`$${resp[i].data}\`\n`;
       }
     const embed = new Discord.MessageEmbed()
-    .setAuthor(`${message.guild.name} - Leaderboard!`, message.guild.iconURL)
+    .setAuthor(`${message.guild.name} - Leaderboard!`, message.guild.iconURL())
     .setDescription(finalLb)
     .setColor(0x51267)
 
