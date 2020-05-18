@@ -1,4 +1,7 @@
 const Discord = require("discord.js");
+const canvas = require("canvas-constructor");
+const fetch = require("node-fetch");
+const { resolve, join } = require("path");
 const db = require("quick.db");
 
 module.exports.run = async (bot, message, args) => {
