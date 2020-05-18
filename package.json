@@ -12,7 +12,9 @@
     "ms": "^2.1.1",
     "quick.db": "^6.3.2",
     "parse-ms": "^2.0.0",
-    "canvas-constructor": "^3.2.0"
+    "canvas-constructor": "^3.2.0",
+    "node-fetch": "*",
+    "path": "*"
   },
   "devDependencies": {
     "eslint": "^4.19.1"
