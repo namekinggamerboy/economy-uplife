@@ -4,7 +4,6 @@ const db = require('quick.db')
 module.exports.run = async (bot, message, args) => {
 let client = bot;
 
-    let title = 'Leaderboards';
   var finalLb = "";
   db.startsWith(`money_${message.guild.id}`, { sort: '.data'}).then(resp => {
       resp.length = 15;
@@ -17,14 +16,15 @@ let client = bot;
         finalLb += `**${client.users.get(resp[i].ID.split('_')[2]).username}** - \`$${resp[i].data}\`\n`;
       }
     const embed = new Discord.MessageEmbed()
-    .setAuthor(`${message.guild.name} - Leaderboard!`, message.guild.iconURL)
+    .setAuthor(`${message.guild.name} - Leaderboard!`, message.guild.iconURL())
     .setDescription(finalLb)
-    .setColor(0x51267)
+    .setColor(0x00ff00)
 
     message.channel.send(embed)
   });
+
 }
 module.exports.help = {
   name:"leaderboard",
-  aliases: [""]
+  aliases: ["top"]
 }
