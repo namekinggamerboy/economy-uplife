@@ -2,5 +2,8 @@
 
 Example:-
 
-```const economy = require("economy-uplife");
-economy.start(client, "Prefix");```
+```
+const economy = require("economy-uplife");
+
+economy.start(client, "Prefix");
+```
