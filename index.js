@@ -1,12 +1,13 @@
 const Discord = require("discord.js"),
-path = require("path"); 
-const fs = require("fs");
+path = require("path"),
+prefiX = require("discord-prefix"),
+fs = require("fs");
 
 module.exports = {
 
   version: require("./package.json").version,
 
-  start(client, prefix){
+  start(client, Prefix){
     if(!client){
             throw new Error("No client found.");
         }
@@ -34,15 +35,19 @@ fs.readdir(__dirname+"/eco/", (err, files) => {
   });
 });
 })
-bot.on("ready", async () => {
- /* console.log(`${bot.user.username} is online on ${bot.guilds.size} servers!`);
-  bot.user.setActivity(`In Development`);
-  bot.user.setStatus('online');
-*/
+
   bot.on("message", async message => {
     if(message.author.bot) return;
     if(message.channel.type === "dm") return;
-  
+
+      const message = msg;
+       prefiX.setPrefix(Prefix);
+      if (prefiX.getPrefix(msg.guild.id) === null) {
+        var prefix = prefiX.getPrefix();
+      } else {
+        var prefix = prefiX.getPrefix(msg.guild.id);
+      }
+
     let messageArray = message.content.split(" ");
     let args = message.content.slice(prefix.length).trim().split(/ +/g);
     let cmd = args.shift().toLowerCase();
@@ -61,8 +66,8 @@ bot.on("ready", async () => {
     commandfile.run(bot, message, args);
   
   } catch (e) {
-  }}
-  )})
+  }
+});
 }
 
 }
