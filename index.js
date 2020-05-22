@@ -11,7 +11,7 @@ module.exports = {
     if(!client){
             throw new Error("No client found.");
         }
-    if(!prefix) return console.log("[economy-uplife]⚠️:{please give me prefix}");
+    if(!Prefix) return console.log("[economy-uplife]⚠️:{please give me prefix}");
   const bot = client;
 bot.commands = new Discord.Collection();
 bot.aliases = new Discord.Collection();
