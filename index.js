@@ -40,12 +40,11 @@ fs.readdir(__dirname+"/eco/", (err, files) => {
     if(message.author.bot) return;
     if(message.channel.type === "dm") return;
 
-      const message = msg;
        prefiX.setPrefix(Prefix);
-      if (prefiX.getPrefix(msg.guild.id) === null) {
+      if (prefiX.getPrefix(message.guild.id) === null) {
         var prefix = prefiX.getPrefix();
       } else {
-        var prefix = prefiX.getPrefix(msg.guild.id);
+        var prefix = prefiX.getPrefix(message.guild.id);
       }
 
     let messageArray = message.content.split(" ");
