@@ -7,10 +7,10 @@ embed:{
 title: "only Admin parmission user use this Command.", 
 color: 0xff0000
 }});
-  let user = message.mentions.members.first() || message.author;
+  let user = message.mentions.users.first() || message.author;
 
-    if (isNaN(args[1])) return;
-    db.add(`money_${message.guild.id}_${user.id}`, args[1])
+    if (isNaN(args[0])) return;
+    db.add(`money_${message.guild.id}_${user.id}`, args[0])
     let bal = await db.fetch(`money_${message.guild.id}_${user.id}`)
 
     let moneyEmbed = new Discord.MessageEmbed()
