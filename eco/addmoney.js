@@ -15,7 +15,7 @@ color: 0xff0000
 
     let moneyEmbed = new Discord.MessageEmbed()
     .setColor("#FFFFFF")
-    .setDescription(`✅ | Added ${args[1]} coins\n\nNew Balance: ${bal}`);
+    .setDescription(`✅ | Added ${args[0]} coins\n\nNew Balance: ${bal}`);
     message.channel.send(moneyEmbed)
 
 };
