@@ -4,7 +4,7 @@ const ms = require("parse-ms");
 
 module.exports.run = async (bot, message, args) => {
 
-  let user = message.mentions.members.first() 
+  let user = message.mentions.users.first() 
 
   let member = db.fetch(`money_${message.guild.id}_${message.author.id}`)
 
