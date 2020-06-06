@@ -6,7 +6,7 @@ module.exports.run = async (bot, message, args) => {
   let user = message.author;
 
   let timeout = 180000;
-  let amount = 5;
+  let amount = args[0];
 
   let beg = await db.fetch(`beg_${message.guild.id}_${user.id}`);
 
@@ -15,7 +15,7 @@ module.exports.run = async (bot, message, args) => {
   
     let timeEmbed = new Discord.MessageEmbed()
     .setColor("#FFFFFF")
-    .setDescription(`✅ | You've already begged recently\n\nBeg again in ${time.minutes}m ${time.seconds}s `);
+    .setDescription(`❌ | You've already begged recently\n\nBeg again in ${time.minutes}m ${time.seconds}s `);
     message.channel.send(timeEmbed)
   } else {
     let moneyEmbed = new Discord.MessageEmbed()
