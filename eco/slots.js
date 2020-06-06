@@ -11,11 +11,11 @@ module.exports.run = async (bot, message, args) => {
 
     let moneymore = new Discord.MessageEmbed()
     .setColor("#FFFFFF")
-    .setDescription(`<:Cross:618736602901905418> You are betting more than you have`);
+    .setDescription(`❌ | You are betting more than you have`);
 
     let moneyhelp = new Discord.MessageEmbed()
     .setColor("#FFFFFF")
-    .setDescription(`<:Cross:618736602901905418> Specify an amount`);
+    .setDescription(`❌ | Specify an amount`);
 
     if (!money) return message.channel.send(moneyhelp);
     if (money > moneydb) return message.channel.send(moneymore);
