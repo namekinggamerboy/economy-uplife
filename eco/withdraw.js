@@ -23,21 +23,21 @@ module.exports.run = async (bot, message, args) => {
 
   let embed2 = new Discord.MessageEmbed()
   .setColor("#FFFFFF")
-  .setDescription(`<:Cross:618736602901905418> Specify an amount to withdraw`);
+  .setDescription(`❌ | Specify an amount to withdraw`);
   
   if (!args[0]) {
       return message.channel.send(embed2)
   }
   let embed3 = new Discord.MessageEmbed()
   .setColor("#FFFFFF")
-  .setDescription(`<:Cross:618736602901905418> You can't withdraw negative money`);
+  .setDescription(`❌ | You can't withdraw negative money`);
 
   if (message.content.includes('-')) { 
       return message.channel.send(embed3)
   }
   let embed4 = new Discord.MessageEmbed()
   .setColor("#FFFFFF")
-  .setDescription(`<:Cross:618736602901905418> You don't have that much money in the bank`);
+  .setDescription(`❌ | You don't have that much money in the bank`);
 
   if (member2 < args[0]) {
       return message.channel.send(embed4)
