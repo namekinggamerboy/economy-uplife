@@ -3,7 +3,7 @@ const db = require("quick.db");
 const ms = require("parse-ms");
 
 module.exports.run = async (bot, message, args) => {
-let user = message.mentions.members.first()
+let user = message.mentions.users.first()
 let targetuser = await db.fetch(`money_${message.guild.id}_${user.id}`)
 let author = await db.fetch(`rob_${message.guild.id}_${user.id}`)
 let author2 = await db.fetch(`money_${message.guild.id}_${user.id}`)
@@ -15,7 +15,7 @@ if (author !== null && timeout - (Date.now() - author) > 0) {
 
     let timeEmbed = new Discord.MessageEmbed()
     .setColor("#FFFFFF")
-    .setDescription(`<:Cross:618736602901905418> You have already robbed someone\n\nTry again in ${time.minutes}m ${time.seconds}s `);
+    .setDescription(`❌ | You have already robbed someone\n\nTry again in ${time.minutes}m ${time.seconds}s `);
     message.channel.send(timeEmbed)
   } else {
 
