@@ -8,7 +8,7 @@ module.exports.run = async (bot, message, args) => {
     if(args[0] == 'nikes') {
         let Embed2 = new Discord.MessageEmbed()
         .setColor("#FFFFFF")
-        .setDescription(`<:Cross:618736602901905418> You don't have Nikes to sell`);
+        .setDescription(`❌ | You don't have Nikes to sell`);
 
         let nikeses = await db.fetch(`nikes_${message.guild.id}_${user.id}`)
 
@@ -26,7 +26,7 @@ module.exports.run = async (bot, message, args) => {
     } else if(args[0] == 'car') {
         let Embed2 = new Discord.MessageEmbed()
         .setColor("#FFFFFF")
-        .setDescription(`<:Cross:618736602901905418> You don't have a Car to sell`);
+        .setDescription(`❌ | You don't have a Car to sell`);
 
        let cars = await db.fetch(`car_${message.guild.id}_${user.id}`)
 
@@ -44,7 +44,7 @@ module.exports.run = async (bot, message, args) => {
     } else if(args[0] == 'mansion') {
         let Embed2 = new Discord.MessageEmbed()
         .setColor("#FFFFFF")
-        .setDescription(`<:Cross:618736602901905418> You don't have a Mansion to sell`);
+        .setDescription(`❌ | You don't have a Mansion to sell`);
 
         let houses = await db.fetch(`house_${message.guild.id}_${user.id}`)
 
