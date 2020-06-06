@@ -6,7 +6,7 @@ const db = require("quick.db");
 
 module.exports.run = async (bot, message, args) => {
 
-  let user = message.mentions.members.first() || message.author;
+  let user = message.mentions.users.first() || message.author;
 
   let money = await db.fetch(`money_${message.guild.id}_${user.id}`)
   if (money === null) money = 0;
