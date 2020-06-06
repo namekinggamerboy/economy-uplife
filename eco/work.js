@@ -14,7 +14,7 @@ module.exports.run = async (bot, message, args) => {
     
         let timeEmbed = new Discord.MessageEmbed()
         .setColor("#FFFFFF")
-        .setDescription(`<:Cross:618736602901905418> You have already worked recently\n\nTry again in ${time.minutes}m ${time.seconds}s `);
+        .setDescription(`❌ | You have already worked recently\n\nTry again in ${time.minutes}m ${time.seconds}s `);
         message.channel.send(timeEmbed)
       } else {
 
