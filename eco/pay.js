@@ -9,28 +9,28 @@ module.exports.run = async (bot, message, args) => {
   let member = db.fetch(`money_${message.guild.id}_${message.author.id}`)
 
   let embed1 = new Discord.MessageEmbed()
-  .setColor("#FFFFFF")
+  .setColor("#FF0000")
   .setDescription(`💰 | Mention someone to pay`);
 
   if (!user) {
       return message.channel.send(embed1)
   }
   let embed2 = new Discord.MessageEmbed()
-  .setColor("#FFFFFF")
+  .setColor("#FF0000")
   .setDescription(`💰 | Specify an amount to pay`);
   
   if (!args[1]) {
       return message.channel.send(embed2)
   }
   let embed3 = new Discord.MessageEmbed()
-  .setColor("#FFFFFF")
+  .setColor("#FF0000")
   .setDescription(`💰 | You can't pay someone negative money`);
 
   if (message.content.includes('-')) { 
       return message.channel.send(embed3)
   }
   let embed4 = new Discord.MessageEmbed()
-  .setColor("#FFFFFF")
+  .setColor("#FF0000")
   .setDescription(`💰 | You don't have that much money`);
 
   if (member < args[1]) {
@@ -40,7 +40,7 @@ module.exports.run = async (bot, message, args) => {
   db.add(`money_${message.guild.id}_${user.id}`, args[1])
   db.subtract(`money_${message.guild.id}_${message.author.id}`, args[1])
   let embed5 = new Discord.MessageEmbed()
-  .setColor("#FFFFFF")
+  .setColor("#00FF00")
   .setDescription(`💸 | You have payed ${user.username} ${args[1]} coins`);
   message.channel.send(embed5)
 
@@ -48,5 +48,5 @@ module.exports.run = async (bot, message, args) => {
 
 module.exports.help = {
   name:"pay",
-  aliases: [""]
+  aliases: ["give","givemoney"]
 }
