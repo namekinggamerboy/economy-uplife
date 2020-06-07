@@ -27,7 +27,7 @@ let money = db.all().filter(data => data.ID.startsWith(`money`)).sort((a, b) => 
     money.length = 15;
     var finalLb = "";
     for (var i in money) {
-      finalLb += `**${money.indexOf(money[i])+1}. <@${client.users.get(money[i].ID.split('_')[1]) ? client.users.get(money[i].ID.split('_')[1]).tag : "Unknown User#0000"}>** - ${money[i].data} :dollar:\n`;
+      finalLb += `**${money.indexOf(money[i])+1}. ${client.users.get(money[i].ID.split('_')[2]) ? client.users.get(money[i].ID.split('_')[2]).username : "Unknown User"}** - ${money[i].data} :dollar:\n`;
     }
     const embed = new Discord.MessageEmbed()
     .setAuthor(`Leaderboard!`, message.guild.iconURL())
