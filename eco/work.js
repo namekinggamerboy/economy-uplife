@@ -21,7 +21,7 @@ module.exports.run = async (bot, message, args) => {
         let replies = ['Programmer','Builder','Waiter','Busboy','Chief','Mechanic']
 
         let result = Math.floor((Math.random() * replies.length));
-        let amount = Math.floor(Math.random() * 80) + 1;
+        let amount = Math.floor(Math.random() * 100) + 1;
         let embed1 = new Discord.MessageEmbed()
         .setColor("#00FF00")
         .setDescription(`💸 | You worked as a ${replies[result]} and earned ${amount} coins`);
