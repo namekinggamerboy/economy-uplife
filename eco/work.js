@@ -13,7 +13,7 @@ module.exports.run = async (bot, message, args) => {
         let time = ms(timeout - (Date.now() - author));
     
         let timeEmbed = new Discord.MessageEmbed()
-        .setColor("#FFFFFF")
+        .setColor("#FF0000")
         .setDescription(`❌ | You have already worked recently\n\nTry again in ${time.minutes}m ${time.seconds}s `);
         message.channel.send(timeEmbed)
       } else {
@@ -23,7 +23,7 @@ module.exports.run = async (bot, message, args) => {
         let result = Math.floor((Math.random() * replies.length));
         let amount = Math.floor(Math.random() * 80) + 1;
         let embed1 = new Discord.MessageEmbed()
-        .setColor("#FFFFFF")
+        .setColor("#00FF00")
         .setDescription(`💸 | You worked as a ${replies[result]} and earned ${amount} coins`);
         message.channel.send(embed1)
         
