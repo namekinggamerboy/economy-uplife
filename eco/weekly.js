@@ -19,7 +19,7 @@ module.exports.run = async (bot, message, args) => {
     message.channel.send(timeEmbed)
   } else {
     let moneyEmbed = new Discord.MessageEmbed()
-  .setColor("#FFFFFF")
+  .setColor("#00FF00")
   .setDescription(`💸 | You've collected your weekly reward of ${amount} coins`);
   message.channel.send(moneyEmbed)
   db.add(`money_${message.guild.id}_${user.id}`, amount)
