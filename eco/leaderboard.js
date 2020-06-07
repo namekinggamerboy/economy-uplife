@@ -4,7 +4,7 @@ const db = require('quick.db')
 module.exports.run = async (bot, message, args) => {
 let client = bot;
 
-  var finalLb = "";
+  /* var finalLb = "";
   db.startsWith(`money_${message.guild.id}`, { sort: '.data'}).then(resp => {
       resp.length = 15;
 
@@ -21,7 +21,21 @@ let client = bot;
     .setColor(0x00ff00)
 
     message.channel.send(embed)
-  });
+  });*/
+
+let money = db.all().filter(data => data.ID.startsWith(`money`)).sort((a, b) => b.data - a.data)
+    money.length = 15;
+    var finalLb = "";
+    for (var i in money) {
+      finalLb += `**${money.indexOf(money[i])+1}. <@${client.users.get(money[i].ID.split('_')[1]) ? client.users.get(money[i].ID.split('_')[1]).tag : "Unknown User#0000"}>** - ${money[i].data} :dollar:\n`;
+    }
+    const embed = new Discord.MessageEmbed()
+    .setAuthor(`Leaderboard!`, message.guild.iconURL())
+    .setColor("#7289da")
+    .setDescription(finalLb)
+    .setFooter(client.user.tag, client.user.displayAvatarURL())
+    .setTimestamp()
+    message.channel.send(embed);
 
 }
 module.exports.help = {
