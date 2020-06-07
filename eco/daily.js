@@ -14,12 +14,12 @@ module.exports.run = async (bot, message, args) => {
     let time = ms(timeout - (Date.now() - daily));
   
     let timeEmbed = new Discord.MessageEmbed()
-    .setColor("#FFFFFF")
+    .setColor("#FF0000")
     .setDescription(`❌ | You've already collected your daily reward\n\nCollect it again in ${time.hours}h ${time.minutes}m ${time.seconds}s `);
     message.channel.send(timeEmbed)
   } else {
     let moneyEmbed = new Discord.MessageEmbed()
-  .setColor("#FFFFFF")
+  .setColor("#00FF00")
   .setDescription(`✅ | You've collected your daily reward of ${amount} coins`);
   message.channel.send(moneyEmbed)
   db.add(`money_${message.guild.id}_${user.id}`, amount)
@@ -32,5 +32,5 @@ module.exports.run = async (bot, message, args) => {
 
 module.exports.help = {
   name:"daily",
-  aliases: ["day"]
+  aliases: [""]
 }
