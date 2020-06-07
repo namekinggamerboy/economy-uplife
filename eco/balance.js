@@ -13,7 +13,7 @@ module.exports.run = async (bot, message, args) => {
   if (bank === null) bank = 0;
 
   let moneyEmbed = new Discord.MessageEmbed()
-  .setColor("#FFFFFF")
+  .setColor("#FFD300")
   .setThumbnail(user.displayAvatarURL()+"?size=4096")
   .setDescription(`**${user}'s Balance**\n\nPocket: ${bal}\nBank: ${bank}`);
   message.channel.send(moneyEmbed)
