@@ -14,13 +14,13 @@ color: 0xff0000
     let bal = await db.fetch(`money_${message.guild.id}_${user.id}`)
 
     let moneyEmbed = new Discord.MessageEmbed()
-    .setColor("#FFFFFF")
+    .setColor("#00FF00")
     .setDescription(`✅ | Added ${args[0]} coins\n\nNew Balance: ${bal}`);
     message.channel.send(moneyEmbed)
 
 };
 
 module.exports.help = {
-  name:"add",
-  aliases: ["am"]
+  name:"addmoney",
+  aliases: ["am","add"]
 }
