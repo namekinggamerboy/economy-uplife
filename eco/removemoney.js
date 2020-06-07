@@ -10,13 +10,13 @@ color: 0xff0000
 
   let user = message.mentions.members.first() || message.author;
 
-    if (isNaN(args[1])) return;
-    db.subtract(`money_${message.guild.id}_${user.id}`, args[1])
+    if (isNaN(args[0])) return;
+    db.subtract(`money_${message.guild.id}_${user.id}`, args[0])
     let bal = await db.fetch(`money_${message.guild.id}_${user.id}`)
 
     let moneyEmbed = new Discord.MessageEmbed()
-    .setColor("#FFFFFF")
-    .setDescription(`💸 | Removed ${args[1]} coins\n\nNew Balance: ${bal}`);
+    .setColor("#00FF00")
+    .setDescription(`💸 | Removed **${args[0]}** coins\n\nNew Balance: ${bal}`);
     message.channel.send(moneyEmbed)
 
 };
