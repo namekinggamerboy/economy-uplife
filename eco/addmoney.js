@@ -2,7 +2,7 @@ const Discord = require("discord.js");
 const db = require("quick.db");
 
 exports.run = async (bot, message, args) => {
-if(!message.member.hasPermission("ADMINISTRATOR")) return message.reply({ 
+if(!message.member.hasPermission("ADMINISTRATOR")) return message.channel.send({ 
 embed:{ 
 title: "only Admin parmission user use this Command.", 
 color: 0xff0000
