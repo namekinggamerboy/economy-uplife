@@ -1,4 +1,4 @@
-const slotItems = ["<:Grape:618765748940177421>", "<:Watermelon:618765904318038027>", "<:Orange:618765805596835880>", "<:Apple:618765871862513695>", "<:7_:618765717499805706>", "<:Strawberry:618765828929617930>", "<:Cherry:618765778094784513>"];
+const slotItems = ["🍇", "🍉", "🍊", "🍎", "🍋", "🍓", "🍒"];
 const db = require("quick.db");
 const Discord = require('discord.js');
 
@@ -10,11 +10,11 @@ module.exports.run = async (bot, message, args) => {
     let win = false;
 
     let moneymore = new Discord.MessageEmbed()
-    .setColor("#FFFFFF")
+    .setColor("#FF0000")
     .setDescription(`❌ | You are betting more than you have`);
 
     let moneyhelp = new Discord.MessageEmbed()
-    .setColor("#FFFFFF")
+    .setColor("#FF0000")
     .setDescription(`❌ | Specify an amount`);
 
     if (!money) return message.channel.send(moneyhelp);
@@ -33,13 +33,13 @@ module.exports.run = async (bot, message, args) => {
     if (win) {
         let slotsEmbed1 = new Discord.MessageEmbed()
             .setDescription(`${slotItems[number[0]]} | ${slotItems[number[1]]} | ${slotItems[number[2]]}\n\nYou won ${money} coins`)
-            .setColor("#FFFFFF")
+            .setColor("#00FF00")
         message.channel.send(slotsEmbed1)
         db.add(`money_${message.guild.id}_${user.id}`, money)
     } else {
         let slotsEmbed = new Discord.MessageEmbed()
             .setDescription(`${slotItems[number[0]]} | ${slotItems[number[1]]} | ${slotItems[number[2]]}\n\nYou lost ${money} coins`)
-            .setColor("#FFFFFF")
+            .setColor("#ff0000")
         message.channel.send(slotsEmbed)
         db.subtract(`money_${message.guild.id}_${user.id}`, money)
     }
