@@ -18,7 +18,7 @@ let random = Math.floor(Math.random() * 37);
 
 let moneyhelp = new Discord.MessageEmbed()
 .setColor("#FF0000")
-.setDescription(`❌ | Specify an amount to gamble | m!roulette <color> <amount>`);
+.setDescription(`❌ | Specify an amount to gamble | <prefix>roulette <color> <amount>`);
 
 let moneymore = new Discord.MessageEmbed()
 .setColor("#FF0000")
