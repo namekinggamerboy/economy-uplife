@@ -13,7 +13,7 @@ module.exports.run = async (bot, message, args) => {
     let bank = await db.fetch(`bank_${message.guild.id}_${user.id}`)
 
     let embedbank = new Discord.MessageEmbed()
-    .setColor('#FFFFFF')
+    .setColor('#FF0000')
     .setDescription("❌ | You don't have any money to deposit")
 
     if(money === 0) return message.channel.send(embedbank)
@@ -21,14 +21,14 @@ module.exports.run = async (bot, message, args) => {
     db.add(`bank_${message.guild.id}_${user.id}`, money)
     db.subtract(`money_${message.guild.id}_${user.id}`, money)
     let embed5 = new Discord.MessageEmbed()
-  .setColor("#FFFFFF")
+  .setColor("#00FF00")
   .setDescription(`✅ | You have deposited all your coins into your bank`);
   message.channel.send(embed5)
   
   } else {
   
   let embed2 = new Discord.MessageEmbed()
-  .setColor("#FFFFFF")
+  .setColor("#FF0000")
   .setDescription(`❌ | Specify an amount to deposit`);
   
   if (!args[0]) {
@@ -36,14 +36,14 @@ module.exports.run = async (bot, message, args) => {
       .catch(err => console.log(err))
   }
   let embed3 = new Discord.MessageEmbed()
-  .setColor("#FFFFFF")
+  .setColor("#FF0000")
   .setDescription(`❌ | You can't deposit negative money`);
 
   if (message.content.includes('-')) { 
       return message.channel.send(embed3)
   }
   let embed4 = new Discord.MessageEmbed()
-  .setColor("#FFFFFF")
+  .setColor("#FF0000")
   .setDescription(`❌ | You don't have that much money`);
 
   if (member < args[0]) {
@@ -51,7 +51,7 @@ module.exports.run = async (bot, message, args) => {
   }
 
   let embed5 = new Discord.MessageEmbed()
-  .setColor("#FFFFFF")
+  .setColor("#00FF00")
   .setDescription(`✅ | You have deposited ${args[0]} coins into your bank`);
 
   message.channel.send(embed5)
