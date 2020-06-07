@@ -3,7 +3,7 @@ const db = require("quick.db");
 const ms = require("parse-ms");
 
 module.exports.run = async (bot, message, args) => {
-let user = message.mentions.users.first()
+let user = message.mentions.users.first();
 let targetuser = await db.fetch(`money_${message.guild.id}_${user.id}`)
 let author = await db.fetch(`rob_${message.guild.id}_${user.id}`)
 let author2 = await db.fetch(`money_${message.guild.id}_${user.id}`)
@@ -41,7 +41,7 @@ if(vip === true) random = Math.floor(Math.random() * 200) + 1;
 if (vip === null) random = Math.floor(Math.random() * 100) + 1;
 
 let embed = new Discord.MessageEmbed()
-.setDescription(`💸 | You robbed ${user} and got away with ${random} coins`)
+.setDescription(`💸 | You robbed <@${user.id}> and got away with ${random} coins`)
 .setColor("#FFFFFF")
 message.channel.send(embed)
 
