@@ -1,7 +1,7 @@
 {
   "name": "economy-uplife",
   "version": "1.4.0-dev",
-  "description": "discord economy give API",
+  "description": "discord economy give API quick.db - ^6.3.2",
   "main": "index.js",
   "scripts": {
     "start": "node index.js"
@@ -10,7 +10,7 @@
   "license": "MIT",
   "dependencies": {
     "ms": "^2.1.1",
-    "quick.db": "^6.3.2",
+    "quick.db": "7.1.1",
     "parse-ms": "^2.0.0",
     "canvas-constructor": "^3.2.0",
     "node-fetch": "*",
