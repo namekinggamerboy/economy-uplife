@@ -4,7 +4,7 @@ const ms = require("parse-ms");
 
 module.exports.run = async (bot, message, args) => {
 
-  let user = message.mentions.users.first() 
+  let user = message.mentions.users.first(); 
 
   let member = db.fetch(`money_${message.guild.id}_${message.author.id}`)
 
@@ -37,13 +37,12 @@ module.exports.run = async (bot, message, args) => {
       return message.channel.send(embed4)
   }
 
-  let embed5 = new Discord.MessageEmbed()
-  .setColor("#FFFFFF")
-  .setDescription(`💸 | You have payed ${user.user.username} ${args[1]} coins`);
-
-  message.channel.send(embed5)
   db.add(`money_${message.guild.id}_${user.id}`, args[1])
   db.subtract(`money_${message.guild.id}_${message.author.id}`, args[1])
+  let embed5 = new Discord.MessageEmbed()
+  .setColor("#FFFFFF")
+  .setDescription(`💸 | You have payed ${user.username} ${args[1]} coins`);
+  message.channel.send(embed5)
 
 }
 
