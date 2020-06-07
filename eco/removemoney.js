@@ -23,6 +23,6 @@ color: 0xff0000
 
 
 module.exports.help = {
-  name:"remove",
+  name:"removemoney",
   aliases: ["rm"]
 }
