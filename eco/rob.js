@@ -14,13 +14,13 @@ if (author !== null && timeout - (Date.now() - author) > 0) {
     let time = ms(timeout - (Date.now() - author));
 
     let timeEmbed = new Discord.MessageEmbed()
-    .setColor("#FFFFFF")
+    .setColor("#FF0000")
     .setDescription(`❌ | You have already robbed someone\n\nTry again in ${time.minutes}m ${time.seconds}s `);
     message.channel.send(timeEmbed)
   } else {
 
 let moneyEmbed = new Discord.MessageEmbed()
-  .setColor("#FFFFFF")
+  .setColor("#FF0000")
   .setDescription(`💰 | You need atleast 200 coins in your wallet to rob someone`);
 
 if (author2 < 200) {
@@ -28,8 +28,8 @@ if (author2 < 200) {
 
 }
 let moneyEmbed2 = new Discord.MessageEmbed()
-  .setColor("#FFFFFF")
-  .setDescription(`💸 | ${user.user.username} does not have anything you can rob`);
+  .setColor("#ff0000")
+  .setDescription(`💸 | **${user.username}** does not have anything you can rob`);
 if (targetuser < 0) {
     return message.channel.send(moneyEmbed2)
 }
@@ -42,7 +42,7 @@ if (vip === null) random = Math.floor(Math.random() * 100) + 1;
 
 let embed = new Discord.MessageEmbed()
 .setDescription(`💸 | You robbed <@${user.id}> and got away with ${random} coins`)
-.setColor("#FFFFFF")
+.setColor("#00FF00")
 message.channel.send(embed)
 
 db.subtract(`money_${message.guild.id}_${user.id}`, random)
