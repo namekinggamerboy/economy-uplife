@@ -14,8 +14,8 @@ module.exports.run = async (bot, message, args) => {
     let time = ms(timeout - (Date.now() - weekly));
   
     let timeEmbed = new Discord.MessageEmbed()
-    .setColor("#FFFFFF")
-    .setDescription(`<:Cross:618736602901905418> You have already collected your weekly reward\n\nCollect it again in ${time.days}d ${time.hours}h ${time.minutes}m ${time.seconds}s `);
+    .setColor("#FF0000")
+    .setDescription(`❌ | You have already collected your weekly reward\n\nCollect it again in ${time.days}d ${time.hours}h ${time.minutes}m ${time.seconds}s `);
     message.channel.send(timeEmbed)
   } else {
     let moneyEmbed = new Discord.MessageEmbed()
