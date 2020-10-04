@@ -8,7 +8,7 @@ module.exports.run = async (bot, message, args) => {
   let timeout = 604800000;
   let amount = 500;
 
-  let weekly = await db.fetch(`weekly_${message.guild.id}_${user.id}`);
+  let weekly = db.get(`weekly_${message.guild.id}_${user.id}`);
 
   if (weekly !== null && timeout - (Date.now() - weekly) > 0) {
     let time = ms(timeout - (Date.now() - weekly));
