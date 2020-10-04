@@ -12,7 +12,7 @@ color: 0xff0000
 
     if (isNaN(args[0])) return;
     db.subtract(`money_${message.guild.id}_${user.id}`, args[0])
-    let bal = await db.fetch(`money_${message.guild.id}_${user.id}`)
+    let bal = db.get(`money_${message.guild.id}_${user.id}`)
 
     let moneyEmbed = new Discord.MessageEmbed()
     .setColor("#00FF00")
