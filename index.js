@@ -1,6 +1,5 @@
 const Discord = require("discord.js"),
 path = require("path"),
-prefiX = require("discord-prefix"),
 fs = require("fs");
 
 module.exports = {
@@ -40,12 +39,8 @@ fs.readdir(__dirname+"/eco/", (err, files) => {
     if(message.author.bot) return;
     if(message.channel.type === "dm") return;
 
-       prefiX.setPrefix(Prefix);
-      if (prefiX.getPrefix(message.guild.id) === null) {
-        var prefix = prefiX.getPrefix();
-      } else {
-        var prefix = prefiX.getPrefix(message.guild.id);
-      }
+
+let prefix = db.get(`prefix_${message.guild.id}`)||Prefix;
 
     let messageArray = message.content.split(" ");
     let args = message.content.slice(prefix.length).trim().split(/ +/g);
