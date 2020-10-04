@@ -12,7 +12,7 @@ module.exports.run = async (bot, message, args) => {
     
 let colour = args[0];
 let money = parseInt(args[1]);
-let moneydb = await db.fetch(`money_${message.guild.id}_${user.id}`)
+let moneydb = db.get(`money_${message.guild.id}_${user.id}`)
 
 let random = Math.floor(Math.random() * 37);
 
