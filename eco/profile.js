@@ -6,23 +6,23 @@ module.exports.run = async (bot, message, args) => {
 
   let user = message.mentions.users.first() || message.author;
 
-  let money = await db.fetch(`money_${message.guild.id}_${user.id}`)
+  let money = db.get(`money_${message.guild.id}_${user.id}`)
   if (money === null) money = 0;
 
-  let bank = await db.fetch(`bank_${message.guild.id}_${user.id}`)
+  let bank = db.get(`bank_${message.guild.id}_${user.id}`)
   if (bank === null) bank = 0;
 
-  let vip = await db.fetch(`bronze_${message.guild.id}_${user.id}`)
+  let vip = db.get(`bronze_${message.guild.id}_${user.id}`)
     if(vip === null) vip = 'None'
     if(vip === true) vip = 'Bronze'
 
-  let shoes = await db.fetch(`nikes_${message.guild.id}_${user.id}`)
+  let shoes = db.get(`nikes_${message.guild.id}_${user.id}`)
   if(shoes === null) shoes = '0'
 
-  let newcar = await db.fetch(`car_${message.guild.id}_${user.id}`)
+  let newcar = db.get(`car_${message.guild.id}_${user.id}`)
   if(newcar === null) newcar = '0'
 
-  let newhouse = await db.fetch(`house_${message.guild.id}_${user.id}`)
+  let newhouse = db.get(`house_${message.guild.id}_${user.id}`)
   if(newhouse === null) newhouse = '0'
 
   let moneyEmbed = new Discord.MessageEmbed()
