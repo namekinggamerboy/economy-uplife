@@ -10,11 +10,11 @@ module.exports.run = async (bot, message, args) => {
         .setColor("#FF0000")
         .setDescription(`❌ | You don't have Nikes to sell`);
 
-        let nikeses = await db.fetch(`nikes_${message.guild.id}_${user.id}`)
+        let nikeses = db.get(`nikes_${message.guild.id}_${user.id}`)
 
         if (nikeses < 1) return message.channel.send(Embed2)
        
-        db.fetch(`nikes_${message.guild.id}_${user.id}`)
+        db.get(`nikes_${message.guild.id}_${user.id}`)
         db.subtract(`nikes_${message.guild.id}_${user.id}`, 1)
 
         let Embed3 = new Discord.MessageEmbed()
@@ -28,11 +28,11 @@ module.exports.run = async (bot, message, args) => {
         .setColor("#FF0000")
         .setDescription(`❌ | You don't have a Car to sell`);
 
-       let cars = await db.fetch(`car_${message.guild.id}_${user.id}`)
+       let cars = db.get(`car_${message.guild.id}_${user.id}`)
 
         if (cars < 1) return message.channel.send(Embed2)
        
-        db.fetch(`car_${message.guild.id}_${user.id}`)
+        db.get(`car_${message.guild.id}_${user.id}`)
         db.subtract(`car_${message.guild.id}_${user.id}`, 1)
 
         let Embed3 = new Discord.MessageEmbed()
@@ -46,11 +46,11 @@ module.exports.run = async (bot, message, args) => {
         .setColor("#FF0000")
         .setDescription(`❌ | You don't have a Mansion to sell`);
 
-        let houses = await db.fetch(`house_${message.guild.id}_${user.id}`)
+        let houses = db.get(`house_${message.guild.id}_${user.id}`)
 
         if (houses < 1) return message.channel.send(Embed2)
        
-        db.fetch(`house_${message.guild.id}_${user.id}`)
+        db.get(`house_${message.guild.id}_${user.id}`)
         db.subtract(`house_${message.guild.id}_${user.id}`, 1)
 
         let Embed3 = new Discord.MessageEmbed()
