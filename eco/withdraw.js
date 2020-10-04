@@ -6,11 +6,11 @@ module.exports.run = async (bot, message, args) => {
 
   let user = message.author;
 
-  let member = db.fetch(`money_${message.guild.id}_${user.id}`)
-  let member2 = db.fetch(`bank_${message.guild.id}_${user.id}`)
+  let member = db.get(`money_${message.guild.id}_${user.id}`)
+  let member2 = db.get(`bank_${message.guild.id}_${user.id}`)
 
   if (args[0] == 'all') {
-    let money = await db.fetch(`bank_${message.guild.id}_${user.id}`)
+    let money = db.get(`bank_${message.guild.id}_${user.id}`)
     
     db.subtract(`bank_${message.guild.id}_${user.id}`, money)
     db.add(`money_${message.guild.id}_${user.id}`, money)
