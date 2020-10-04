@@ -5,12 +5,12 @@ const ms = require("parse-ms");
 module.exports.run = async (bot, message, args) => {
   let user = message.author;
 
-  let member = db.fetch(`money_${message.guild.id}_${user.id}`)
-  let member2 = db.fetch(`bank_${message.guild.id}_${user.id}`)
+  let member = db.get(`money_${message.guild.id}_${user.id}`)
+  let member2 = db.get(`bank_${message.guild.id}_${user.id}`)
 
   if (args[0] == 'all') {
-    let money = await db.fetch(`money_${message.guild.id}_${user.id}`)
-    let bank = await db.fetch(`bank_${message.guild.id}_${user.id}`)
+    let money = db.get(`money_${message.guild.id}_${user.id}`)
+    let bank = db.get(`bank_${message.guild.id}_${user.id}`)
 
     let embedbank = new Discord.MessageEmbed()
     .setColor('#FF0000')
