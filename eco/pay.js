@@ -6,7 +6,7 @@ module.exports.run = async (bot, message, args) => {
 
   let user = message.mentions.users.first(); 
 
-  let member = db.fetch(`money_${message.guild.id}_${message.author.id}`)
+  let member = db.get(`money_${message.guild.id}_${message.author.id}`)
 
   let embed1 = new Discord.MessageEmbed()
   .setColor("#FF0000")
