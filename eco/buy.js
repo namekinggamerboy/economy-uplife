@@ -5,7 +5,7 @@ module.exports.run = async (bot, message, args) => {
    
     let user = message.author;
 
-    let author = db.fetch(`money_${message.guild.id}_${user.id}`)
+    let author = db.get(`money_${message.guild.id}_${user.id}`)
 
     let Embed = new Discord.MessageEmbed()
     .setColor("#FF0000")
@@ -14,7 +14,7 @@ module.exports.run = async (bot, message, args) => {
     if (args[0] == 'bronze') {
         if (author < 3500) return message.channel.send(Embed)
         
-        db.fetch(`bronze_${message.guild.id}_${user.id}`);
+        db.get(`bronze_${message.guild.id}_${user.id}`);
         db.set(`bronze_${message.guild.id}_${user.id}`, true)
 
         let Embed2 = new Discord.MessageEmbed()
@@ -30,7 +30,7 @@ module.exports.run = async (bot, message, args) => {
 
         if (author < 600) return message.channel.send(Embed2)
        
-        db.fetch(`nikes_${message.guild.id}_${user.id}`)
+        db.get(`nikes_${message.guild.id}_${user.id}`)
         db.add(`nikes_${message.guild.id}_${user.id}`, 1)
 
         let Embed3 = new Discord.MessageEmbed()
@@ -46,7 +46,7 @@ module.exports.run = async (bot, message, args) => {
 
         if (author < 800) return message.channel.send(Embed2)
        
-        db.fetch(`car_${message.guild.id}_${user.id}`)
+        db.get(`car_${message.guild.id}_${user.id}`)
         db.add(`car_${message.guild.id}_${user.id}`, 1)
 
         let Embed3 = new Discord.MessageEmbed()
@@ -62,7 +62,7 @@ module.exports.run = async (bot, message, args) => {
 
         if (author < 1200) return message.channel.send(Embed2)
        
-        db.fetch(`house_${message.guild.id}_${user.id}`)
+        db.get(`house_${message.guild.id}_${user.id}`)
         db.add(`house_${message.guild.id}_${user.id}`, 1)
 
         let Embed3 = new Discord.MessageEmbed()
