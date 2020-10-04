@@ -4,9 +4,9 @@ const ms = require("parse-ms");
 
 module.exports.run = async (bot, message, args) => {
 let user = message.mentions.users.first();
-let targetuser = await db.fetch(`money_${message.guild.id}_${user.id}`)
-let author = await db.fetch(`rob_${message.guild.id}_${user.id}`)
-let author2 = await db.fetch(`money_${message.guild.id}_${user.id}`)
+let targetuser = db.get(`money_${message.guild.id}_${user.id}`)
+let author = db.get(`rob_${message.guild.id}_${user.id}`)
+let author2 = db.get(`money_${message.guild.id}_${user.id}`)
 
 let timeout = 600000;
 
@@ -36,7 +36,7 @@ if (targetuser < 0) {
 
 
 
-let vip = await db.fetch(`bronze_${user.id}`)
+let vip = db.get(`bronze_${user.id}`)
 if(vip === true) random = Math.floor(Math.random() * 200) + 1;
 if (vip === null) random = Math.floor(Math.random() * 100) + 1;
 
