@@ -7,10 +7,10 @@ module.exports.run = async (bot, message, args) => {
   let user = message.author;
 
   let timeout = 180000;
-  let amount = Math.floor(Math.random() * 30) + 1;
+  let amount = Math.floor(Math.random() * 50) + 1;
  
 
-  let beg = await db.fetch(`beg_${message.guild.id}_${user.id}`);
+  let beg = await db.get(`beg_${message.guild.id}_${user.id}`);
 
   if (beg !== null && timeout - (Date.now() - beg) > 0) {
     let time = ms(timeout - (Date.now() - beg));
