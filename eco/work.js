@@ -5,7 +5,7 @@ const ms = require("parse-ms");
 module.exports.run = async (bot, message, args) => {
   
     let user = message.author;
-    let author = await db.fetch(`work_${message.guild.id}_${user.id}`)
+    let author = db.get(`work_${message.guild.id}_${user.id}`)
 
     let timeout = 600000;
     
