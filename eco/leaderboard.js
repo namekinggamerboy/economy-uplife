@@ -23,7 +23,7 @@ let client = bot;
     message.channel.send(embed)
   });*/
 
-let money = db.all().filter(data => data.ID.startsWith(`money`)).sort((a, b) => b.data - a.data)
+let money = db.all().filter(data => data.ID.startsWith(`money_${message.guild.id}`)).sort((a, b) => b.data - a.data)
     money.length = 15;
     var finalLb = "";
     for (var i in money) {
