@@ -30,10 +30,10 @@ let money = db.all().filter(data => data.ID.startsWith(`money_${message.guild.id
       finalLb += `**${money.indexOf(money[i])+1}. ${client.users.get(money[i].ID.split('_')[2]) ? client.users.get(money[i].ID.split('_')[2]).username : "Unknown User"}** - ${money[i].data} :dollar:\n`;
     }
     const embed = new Discord.MessageEmbed()
-    .setAuthor(`Leaderboard![money only]`, message.guild.iconURL())
+    .setAuthor(`Leaderboard![money only]`, message.guild.iconURL({ dynamic: true }))
     .setColor("#7289da")
     .setDescription(finalLb)
-    .setFooter(client.user.tag, client.user.displayAvatarURL())
+    .setFooter(client.user.tag, client.user.displayAvatarURL({ dynamic: true }))
     .setTimestamp()
     message.channel.send(embed);
 
