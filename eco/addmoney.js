@@ -22,5 +22,5 @@ color: 0xff0000
 
 module.exports.help = {
   name:"addmoney",
-  aliases: ["am","add"]
+  aliases: ["am","add-money"]
 }
