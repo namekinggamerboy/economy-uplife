@@ -4,24 +4,9 @@ const db = require('quick.db')
 module.exports.run = async (bot, message, args) => {
 let client = bot;
 
-  /* var finalLb = "";
-  db.startsWith(`money_${message.guild.id}`, { sort: '.data'}).then(resp => {
-      resp.length = 15;
+if(!args[0]) return message.channel.send(":x: | Please specify the leaderboard type between `money` and `bank`");
 
-      let i = 0;
-      for (i in resp) {
-        if (resp[i] == null || resp[i] == undefined) {
-          db.set(`money_${message.guild.id}_${resp[i].ID.split('_')[2]}`, 50);
-        }
-        finalLb += `**${client.users.get(resp[i].ID.split('_')[2]).username}** - \`$${resp[i].data}\`\n`;
-      }
-    const embed = new Discord.MessageEmbed()
-    .setAuthor(`${message.guild.name} - Leaderboard!`, message.guild.iconURL())
-    .setDescription(finalLb)
-    .setColor(0x00ff00)
-
-    message.channel.send(embed)
-  });*/
+if(args[0] == "money"){
 
 let money = db.all().filter(data => data.ID.startsWith(`money_${message.guild.id}`)).sort((a, b) => b.data - a.data)
     money.length = 15;
@@ -37,8 +22,25 @@ let money = db.all().filter(data => data.ID.startsWith(`money_${message.guild.id
     .setTimestamp()
     message.channel.send(embed);
 
+} else
+if(args[0] == "bank"){
+let bank = db.all().filter(data => data.ID.startsWith(`bank_${message.guild.id}`)).sort((a, b) => b.data - a.data)
+    bank.length = 15;
+    var final = "";
+    for (var it in bank) {
+      final += `**${bank.indexOf(bank[it])+1}. ${client.users.get(bank[it].ID.split('_')[2]) ? client.users.get(bank[it].ID.split('_')[2]).username : "Unknown User"}** - ${bank[it].data} 💳\n`;
+    }
+    const embed = new Discord.MessageEmbed()
+    .setAuthor(`Leaderboard![bank only]`, message.guild.iconURL({ dynamic: true }))
+    .setColor("#7289da")
+    .setDescription(final)
+    .setFooter(client.user.tag, client.user.displayAvatarURL({ dynamic: true }))
+    .setTimestamp()
+    message.channel.send(embed);
+}
+
 }
 module.exports.help = {
   name:"leaderboard",
-  aliases: ["top"]
+  aliases: ["top", "lb"]
 }
