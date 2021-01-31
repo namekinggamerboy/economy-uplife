@@ -4,7 +4,7 @@ const db = require("quick.db");
 exports.run = async (bot, message, args) => {
 if(!message.member.hasPermission("ADMINISTRATOR")) return message.channel.send({ 
 embed:{ 
-title: "only Admin parmission user use this Command.", 
+title: "only Admin permission user use this Command.", 
 color: 0xff0000
 }});
   let user = message.mentions.users.first() || message.author;
